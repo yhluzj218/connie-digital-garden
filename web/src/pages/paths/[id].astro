@@ -1,0 +1,47 @@
+---
+import { paths } from "../../data/paths";
+
+export function getStaticPaths() {
+  return paths.map((p) => ({
+    params: { id: p.id },
+    props: { path: p },
+  }));
+}
+
+const { path } = Astro.props;
+---
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{path.title}</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/paths">← Back to Paths</a>
+    </nav>
+
+    <main>
+      <header>
+        <h1>{path.title}</h1>
+        <p>{path.description}</p>
+      </header>
+
+      <section>
+        <h2>Nodes</h2>
+        <ul>
+          {path.nodeIds.map((id) => (
+            <li>{id}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Artifact Goal</h2>
+        <p>{path.artifactGoal}</p>
+      </section>
+    </main>
+  </body>
+</html>
