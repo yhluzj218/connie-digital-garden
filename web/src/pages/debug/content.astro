@@ -1,0 +1,23 @@
+---
+// TEMP: Day 7 contract validation page. Remove after Gate 2.
+import { getCollection } from 'astro:content';
+
+const paths = await getCollection('paths');
+---
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <title>Content Debug</title>
+  </head>
+  <body>
+    <h1>Content Debug</h1>
+    <p>paths count: {paths.length}</p>
+
+    <ul>
+      {paths.map((p) => (
+        <li>{p.data.id} — {p.data.title}</li>
+      ))}
+    </ul>
+  </body>
+</html>
