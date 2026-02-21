@@ -1,4 +1,6 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
 export function getStaticPaths() {
   return [
     { params: { id: "test" } },
@@ -8,5 +10,7 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 ---
 
-<h1>Node</h1>
-<p>{id}</p>
+<BaseLayout title={`Node: ${id}`}>
+  <h1>Node</h1>
+  <p>{id}</p>
+</BaseLayout>
