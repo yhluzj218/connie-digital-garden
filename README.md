@@ -9,7 +9,7 @@ Milestone M0 — Artifact-First MVP Sprint
 Day 4 — Gate 1（骨架成立）
 
 ## 已鎖定契約
-- docs/SDD-routing.md
+- docs/sdd-routing.md
 - 固定路由：/paths /node/[id] /artifact/[id]
 
 ## 下一步
