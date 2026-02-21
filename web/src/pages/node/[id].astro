@@ -1,27 +1,27 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-// 1) SSG 動態路由必需：告訴 Astro 要產哪些 /node/[id]
-export function getStaticPaths() {
-  return [
-    { params: { id: "test" } },
-    // 之後你要加 node，就在這裡先加 stub（Day 7 再接 schema/collections）
-    // { params: { id: "node-1" } },
-  ];
+// 1) SSG 動態路由：用 nodes collection 產出所有 /node/[id]
+export async function getStaticPaths() {
+  const nodes = await getCollection("nodes");
+  return nodes.map((entry) => ({
+    params: { id: entry.data.id },
+  }));
 }
 
 // 2) 從 params 取 id
 const { id } = Astro.params;
 
-// 3) 暫時 mock data（Day 7 才接 Schema）
-const node = {
-  title: `Node: ${id}`,
-  objective: "定義此節點的核心目標。",
-  knowledge: ["關鍵概念一", "關鍵概念二", "常見誤解"],
-  practice: "完成一個最小可行練習。",
-  dod: ["可以清楚說明核心概念", "完成練習", "產出可驗證成果"],
-  evidence: "TBD",
-};
+// 3) 讀取 nodes collection，找到對應 id 的那篇
+const nodes = await getCollection("nodes");
+const entry = nodes.find((n) => n.data.id === id);
+
+if (!entry) {
+  throw new Error(`Node not found: ${id}`);
+}
+
+const node = entry.data;
 ---
 
 <Layout>
@@ -34,11 +34,7 @@ const node = {
 
   <section>
     <h2>Knowledge</h2>
-    <ul>
-      {node.knowledge.map((item) => (
-        <li>{item}</li>
-      ))}
-    </ul>
+    <p>{node.knowledge}</p>
   </section>
 
   <section>
