@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 你原本的字體 import 可以放下面 */
+@import "./fonts.css";
+
+/* 背景色可以放這裡 */
+body {
+  background: #E9E9E7;
+}

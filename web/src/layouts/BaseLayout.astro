@@ -1,5 +1,6 @@
 ---
-import "../styles/tokens.css";
+import "../styles/index.css";
+import "../styles/home.css";
 
 const { title = "Connie Digital Garden" } = Astro.props;
 ---
@@ -9,6 +10,7 @@ const { title = "Connie Digital Garden" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/src/styles/index.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />

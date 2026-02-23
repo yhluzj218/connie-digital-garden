@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro"
 import { incrementView, getView } from "../../../services/viewService"
 
+export const prerender = false // API route requires server-side rendering
+
 export const GET: APIRoute = async ({ params }) => {
   const id = params.id
   if (!id) {

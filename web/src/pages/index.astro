@@ -1,12 +1,82 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Background from "../components/home/Background.astro";
 ---
 
 <BaseLayout title="Home">
-  <h1>Day 2 — CI/CD 上線成功</h1>
+  <Background />
 
-  <ul>
-    <li><a href="/garden">Garden</a></li>
-    <li><a href="/family">Family</a></li>
-  </ul>
+  <div class="home-shell">
+    <!-- Navigation -->
+    <nav class="flex justify-end" style="gap:48px;">
+      <a class="nav-link" href="/paths">Paths</a>
+      <a class="nav-link" href="/artifacts">Artifacts</a>
+      <a class="nav-link" href="/about">關於</a>
+    </nav>
+
+    <!-- Navigation → Hero：160px -->
+    <div style="height:160px;"></div>
+
+    <!-- Hero -->
+    <section>
+      <h1 class="hero-title">栖識集</h1>
+
+      <p class="hero-lead">一種有次第的思想結構。</p>
+      <p class="hero-sub">用結構設計自己的成長。</p>
+
+      <div class="hero-rule"></div>
+    </section>
+
+    <!-- Hero → Model：160px -->
+    <div style="height:160px;"></div>
+
+    <!-- Model Section -->
+    <section>
+      <div class="model-item">
+        <div class="model-no">01</div>
+        <div class="model-title">Path</div>
+        <div class="model-subtitle">思想展開的路徑</div>
+        <div class="model-desc">
+          每一條 Path 是一段結構化的能力養成計畫。它不是課程，不是教程——而是一條從現狀到目標的工程路線。你清楚起點、終點，以及中間每一個必經的節點。
+        </div>
+      </div>
+
+      <div class="model-item">
+        <div class="model-no">02</div>
+        <div class="model-title">Node</div>
+        <div class="model-subtitle">路徑中的觀點</div>
+        <div class="model-desc">
+          Node 是能力的最小可操作單位。每個 Node 對應一個具體的知識點或技能點，可被獨立學習、獨立驗證。它讓模糊的「能力」變得可拆解、可定位。
+        </div>
+      </div>
+
+      <div class="model-item">
+        <div class="model-no">03</div>
+        <div class="model-title">Artifact</div>
+        <div class="model-subtitle">能力驗證的成果</div>
+        <div class="model-desc">
+          Artifact 是你完成 Node 後產出的證據。它可以是一段程式、一篇分析、一個設計。Artifact 不是作業——它是你能力的物質證明。
+        </div>
+      </div>
+    </section>
+
+    <!-- Model → Manifesto：160px -->
+    <div style="height:160px;"></div>
+
+    <!-- Manifesto -->
+    <section class="manifesto">
+      <div>這不是筆記。</div>
+      <div>這不是部落格。</div>
+      <div>這是一種以成果為核心的思想結構。</div>
+    </section>
+
+    <!-- Manifesto → Footer：140px -->
+    <div style="height:140px;"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">栖識集</div>
+      <div class="footer-tagline">為自己設計的成長系統</div>
+    </footer>
+  </div>
 </BaseLayout>
